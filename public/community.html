@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plantsite</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="wrapper">
+      <div id="topBar">
+        <ul>
+          <a href="#"><li>Logga in</li></a>
+          <a href="./profile.html"><li>Profil</li></a>
+        </ul>
+      </div>
+      <nav id="navHeader">
+        <a id="linkedLogo" href="./index.html"
+          ><img src="./assets/icons/succulent.png" alt="#logo" id="logo" />
+          <p style="font-weight: 500">PlantDB</p></a
+        >
+        <ul>
+          <a href="./plants.html"><li>Plantor</li></a>
+          <a href="./articles.html"><li>Artiklar</li></a>
+          <a href="./community.html"><li>Community</li></a>
+          <a href="./about.html"><li>Om oss</li></a>
+        </ul>
+        <img
+          src="./assets/icons/searchIcon.png"
+          alt="#search"
+          style="display: block"
+          id="searchIcon"
+        />
+        <input type="text" id="searchBar" style="display: none" />
+      </nav>
+    </header>
+    <main>
+      <section style="margin-bottom: 10px">
+        <div id="comHero">
+          <div class="comSearch">
+            <h1 style="font-size: 45px">Community</h1>
+            <div>
+              <div class="tagSearchField">
+                <input type="text" class="tagSearch" />
+                <img
+                  src="./assets/icons/searchIconLight.png"
+                  alt="#search"
+                  style="display: block"
+                  class="tagSearchIcon"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="wrapper sortField">
+        <div>
+          <a href="createPost.html">
+            <button class="button" id="newPostButton">New Post</button>
+          </a>
+        </div>
+        <div>
+          <button class="button tagButton">Plantor</button
+          ><button class="button tagButton">Örter</button
+          ><button class="button tagButton">Kryddor</button
+          ><button class="button tagButton">Hälsa</button
+          ><button class="button tagButton">Medicin</button>
+          <!-- <button class="button tagButton">Sort by...</button> -->
+        </div>
+      </section>
+      <section class="wrapper forum">
+        <div id="posts" class="forum">
+          <div class="fPost">
+            <h1 style="font-size: 40px">Latest discussions</h1>
+          </div>
+          <!-- Posts -->
+        </div>
+      </section>
+      <div id="post-modal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="modal-title"></h3>
+            <button id="close-modal">X</button>
+          </div>
+
+          <p id="modal-body"></p>
+
+        <!-- Edit fields -->
+          <textarea id="modal-title-edit" class="hidden"></textarea>
+          <textarea id="modal-body-edit" class="hidden"></textarea>
+
+          <div id="modal-buttons">
+            <button id="editPostButton">Edit post</button>
+            <button id="savePostButton" class="hidden">Save</button>
+            <button id="deletePostButton">Delete post</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="wrapper">
+      <div>
+        <p>JSU2025</p>
+        <p>·</p>
+        <p>Alexander Tjernström</p>
+        <p>·</p>
+        <p>Ebba Wahlström</p>
+        <p>·</p>
+        <p>Anna Ek</p>
+      </div>
+      <a href="https://github.com/Kalkonkurt/Plantsite" id="repoLink"
+        >Repository</a
+      >
+    </footer>
+    <script type="module" src="../dist/public/src/community.js"></script>
+  </body>
+</html>

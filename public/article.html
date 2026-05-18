@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantsite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="wrapper">
+    <div id="topBar">
+      <ul>
+        <a href="./login.html">
+          <li>Logga in</li>
+        </a>
+        <a href="./profile.html">
+          <li>Profil</li>
+        </a>
+      </ul>
+    </div>
+    <nav id="navHeader">
+      <a id="linkedLogo" href="./index.html"><img src="./assets/icons/succulent.png" alt="#logo" id="logo" />
+        <p style="font-weight: 500">PlantDB</p>
+      </a>
+      <ul>
+        <a href="./plants.html">
+          <li>Plantor</li>
+        </a>
+        <a href="./articles.html">
+          <li>Artiklar</li>
+        </a>
+        <a href="./community.html">
+          <li>Community</li>
+        </a>
+        <a href="./about.html">
+          <li>Om oss</li>
+        </a>
+      </ul>
+      <a href="./index.html"><img src="./assets/icons/searchIcon.png" alt="#search" style="display: block"
+          id="searchIcon" /></a>
+      <input type="text" style="display: none" />
+    </nav>
+  </header>
+  <main>
+    <section class="wrapper">
+      <a class="button" href="articles.html" id="return">Return to articles</a>
+      <div class="article-container" id="article-body">
+      </div>
+    </section>
+  </main>
+  <footer class="wrapper">
+    <div>
+      <p>JSU2025</p>
+      <p>·</p>
+      <p>Alexander Tjernström</p>
+      <p>·</p>
+      <p>Ebba Wahlström</p>
+      <p>·</p>
+      <p>Anna Ek</p>
+    </div>
+    <a href="https://github.com/Kalkonkurt/Plantsite" id="repoLink">Repository</a>
+  </footer>
+  <script src="/dist/index.js"></script>
+  <script type="module" src="/dist/public/src/article.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantsite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="wrapper">
+    <div id="topBar">
+      <ul>
+        <a href="./login.html">
+          <li>Login</li>
+        </a>
+        <a href="./profile.html">
+          <li>Profile</li>
+        </a>
+      </ul>
+    </div>
+    <nav id="navHeader">
+      <a id="linkedLogo" href="./index.html"><img src="./assets/icons/succulent.png" alt="#logo" id="logo" />
+        <p style="font-weight: 500">PlantDB</p>
+      </a>
+      <ul>
+        <a href="./plants.html">
+          <li>Plants</li>
+        </a>
+        <a href="./articles.html">
+          <li>Articles</li>
+        </a>
+        <a href="./community.html">
+          <li>Community</li>
+        </a>
+        <a href="./about.html">
+          <li>About Us</li>
+        </a>
+      </ul>
+      <a href="./index.html"><img src="./assets/icons/searchIcon.png" alt="#search" style="display: block"
+          id="searchIcon" /></a>
+      <input type="text" style="display: none" />
+    </nav>
+  </header>
+  <main>
+    <section id="hero">
+      <h1>Grow. Share. Spice Up Your Home</h1>
+      <p>From your first seed to your spiciest harvest, were here to grow with you.</p>
+    </section>
+    <section>
+      <div class="wrapper row">
+        <article>
+          <div>
+            <h5>/ Latest Article</h5>
+            <h1 id="index-article-title">Lorem ipsum!</h1>
+          </div>
+
+          <p id="index-article-body">
+          </p>
+          <a href="articles.html"><button class="button">Explore All Articles</button></a>
+        </article>
+        <img class="articleImg" src="./assets/images/artImgChili.webp" alt="Image" />
+      </div>
+    </section>
+    <section style="padding-top: 50px">
+      <div class="wrapper row">
+        <article>
+          <h1>Community Highlights</h1>
+          <p>
+            Not sure where to start or looking for new ideas?
+            hese highlighted posts showcase helpful advice, real experiences, and creative growing setups from fellow
+            herb and chili enthusiasts.
+
+          </p>
+          <p>
+            See how others are solving common problems, experimenting with new techniques, and sharing their latest
+            harvests. Whether you're a beginner or already have a thriving indoor garden, there's always something new
+            to learn. Dive in, get inspired, and discover what the community is growing right now.
+          </p>
+        </article>
+        <div class="imgContainer">
+          <a href="#"><img src="./assets/images/CH1.webp" alt="img1" class="angledImg" /></a>
+          <a href="#"><img src="./assets/images/CH2.webp" alt="img2" class="angledImg" /></a>
+          <a href="#"><img src="./assets/images/CH3.webp" alt="img3" class="angledImg" /></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrapper">
+    <div>
+      <p>JSU2025</p>
+      <p>·</p>
+      <p>Alexander Tjernström</p>
+      <p>·</p>
+      <p>Ebba Wahlström</p>
+      <p>·</p>
+      <p>Anna Ek</p>
+    </div>
+    <a href="https://github.com/Kalkonkurt/Plantsite" id="repoLink">Repository</a>
+  </footer>
+    <script type="module" src="..\dist\public\src\index.js"></script>
+</body>
+
+</html>

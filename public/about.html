@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plantsite</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="wrapper">
+      <div id="topBar">
+        <ul>
+          <a href="#"><li>Logga in</li></a>
+          <a href="./profile.html"><li>Profil</li></a>
+        </ul>
+      </div>
+      <nav id="navHeader" style="margin-bottom: 100px">
+        <a id="linkedLogo" href="./index.html"
+          ><img src="./assets/icons/succulent.png" alt="#logo" id="logo" />
+          <p style="font-weight: 500">PlantDB</p></a
+        >
+        <ul>
+          <a href="./plants.html"><li>Plants</li></a>
+          <a href="./articles.html"><li>Articles</li></a>
+          <a href="./community.html"><li>Community</li></a>
+          <a href="./about.html"><li>About us</li></a>
+        </ul>
+
+        <img
+          src="./assets/icons/searchIcon.png"
+          alt="#search"
+          style="display: block"
+          id="searchIcon"
+        />
+        <input type="text" style="display: none" />
+      </nav>
+    </header>
+    <main>
+      <section>
+        <div class="wrapper row">
+          <article>
+            <div>
+              <h1 id="about">About Us</h1>
+              <h5 id="about-short">
+                Welcome to Plantship, your home for all things spice and nice!
+              </h5>
+            </div>
+            <p id="artText">
+              We’re passionate about the natural world and the flavors it brings
+              to our lives. Whether you’re a seasoned gardener, a culinary
+              adventurer, or just curious about the plants around you, our goal
+              is to share knowledge, inspiration, and a little bit of green
+              magic.
+            </p>
+            <ul class="about-list">
+              <li>
+                <strong>Learn about plants</strong> - from fiery chilis to
+                fragrant herbs and exotic aromatics, discover care tips,
+                planting schedules and uses.
+              </li>
+              <li>
+                <strong>Read insightful articles</strong> - explore gardening
+                techniques, cooking ideas and plant lore.
+              </li>
+              <li>
+                <strong>Connect with a community</strong> - swap stories, ask
+                questions, and share your own plant adventures with fellow
+                enthusiasts.
+              </li>
+            </ul>
+
+            <p>
+              At Plantship, we believe plants bring people together. Every leaf,
+              stem, and spice tells a story, and we’re here to celebrate it with
+              curiosity and a sense of community.
+            </p>
+            <p>
+              Grow and learn with us, and let’s cultivate something amazing
+              together.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="wrapper">
+      <div>
+        <p>JSU2025</p>
+        <p>·</p>
+        <p>Alexander Tjernström</p>
+        <p>·</p>
+        <p>Ebba Wahlström</p>
+        <p>·</p>
+        <p>Anna Ek</p>
+      </div>
+      <a href="https://github.com/Kalkonkurt/Plantsite" id="repoLink"
+        >Repository</a
+      >
+    </footer>
+    <script type="module" src="..\dist\public\src\index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,355 @@
+CREATE TABLE authors (
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(255),
+email VARCHAR(255) UNIQUE,
+bio VARCHAR(500),
+created_at DATETIME
+);
+
+CREATE TABLE categories (
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(255) UNIQUE,
+description VARCHAR(255)
+);
+
+CREATE TABLE plants (
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(255) UNIQUE,
+img_url VARCHAR(255),
+latin_name VARCHAR(255),
+plant_family VARCHAR(255),
+description TEXT,
+care_instructions VARCHAR(500),
+sun_requirement VARCHAR(255),
+water_requirement VARCHAR(255),
+soil_type VARCHAR(255),
+blooming_season VARCHAR(255),
+difficulty_level VARCHAR(255),
+created_at DATETIME,
+updated_at DATETIME
+);
+
+CREATE TABLE tags (
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(255) UNIQUE
+);
+
+CREATE TABLE articles (
+id INT PRIMARY KEY AUTO_INCREMENT,
+author_id INT,
+title VARCHAR(255),
+slug VARCHAR(255) UNIQUE,
+img_url VARCHAR(255),
+content LONGTEXT,
+excerpt TEXT,
+category_id INT,
+published_date DATETIME,
+created_at DATETIME,
+updated_at DATETIME,
+is_premium BOOLEAN DEFAULT FALSE,
+FOREIGN KEY (author_id) REFERENCES authors(id),
+FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+
+CREATE TABLE planting_schedule (
+id INT PRIMARY KEY AUTO_INCREMENT,
+plant_id INT,
+planting_start_month INT,
+planting_end_month INT,
+harvest_start_month INT,
+harvest_end_month INT,
+notes VARCHAR(500),
+FOREIGN KEY (plant_id) REFERENCES plants(id)
+);
+
+CREATE TABLE article_plants (
+article_id INT,
+plant_id INT,
+PRIMARY KEY (article_id, plant_id),
+FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE CASCADE,
+FOREIGN KEY (plant_id) REFERENCES plants(id) ON DELETE CASCADE
+);
+
+CREATE TABLE article_tags (
+article_id INT,
+tag_id INT,
+PRIMARY KEY (article_id, tag_id),
+FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE CASCADE,
+FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
+);
+
+INSERT INTO authors (name, email, bio, created_at) VALUES
+('Anna Lindberg', 'anna@gardenhub.com', 'Urban gardener specializing in herbs and aromatic plants.', NOW()),
+('Marcus Berg', 'marcus@gardenhub.com', 'Chili enthusiast and fermentation hobbyist.', NOW()),
+('Sara Nilsson', 'sara@gardenhub.com', 'Writer focused on sustainable home gardening.', NOW());
+
+INSERT INTO categories (name, description) VALUES
+('Herbs', 'Aromatic plants used in cooking'),
+('Vegetables', 'Edible garden vegetables'),
+('Guides', 'Gardening guides and tutorials'),
+('Recipes', 'Cooking with homegrown ingredients');
+
+INSERT INTO plants
+(name, img_url, latin_name, plant_family, description, care_instructions, sun_requirement, water_requirement, soil_type, blooming_season, difficulty_level, created_at, updated_at)
+VALUES
+('Basil', 'basil.webp', 'Ocimum basilicum', 'Lamiaceae',
+'A fragrant herb used in many cuisines, especially Mediterranean cooking.',
+'Keep soil moist and harvest regularly to promote growth.',
+'Full sun', 'Moderate', 'Well-drained', 'Summer', 'Easy', NOW(), NOW()),
+
+('Rosemary', 'rosemary.webp', 'Salvia rosmarinus', 'Lamiaceae',
+'A woody perennial herb with a strong aroma.',
+'Needs well-drained soil and plenty of sunlight.',
+'Full sun', 'Low', 'Sandy', 'Spring', 'Easy', NOW(), NOW()),
+
+('Garlic', 'garlic.webp', 'Allium sativum', 'Amaryllidaceae',
+'Bulb vegetable grown for its strong flavored cloves.',
+'Plant cloves in autumn and harvest in summer.',
+'Full sun', 'Low', 'Loose soil', 'Summer', 'Easy', NOW(), NOW()),
+
+('Ginger', 'ginger.webp', 'Zingiber officinale', 'Zingiberaceae',
+'A tropical plant grown for its spicy root.',
+'Keep warm and moist, grow in containers in colder climates.',
+'Partial sun', 'Moderate', 'Rich soil', 'Autumn', 'Medium', NOW(), NOW()),
+
+('Jalapeno Chili', 'jalapeno.webp', 'Capsicum annuum', 'Solanaceae',
+'A medium-heat chili pepper popular in Mexican cuisine.',
+'Requires warmth, sunlight and regular watering.',
+'Full sun', 'Moderate', 'Rich soil', 'Summer', 'Easy', NOW(), NOW()),
+
+('Habanero Chili', 'habanero.webp', 'Capsicum chinense', 'Solanaceae',
+'A very hot chili pepper with fruity flavor.',
+'Needs warm temperatures and consistent watering.',
+'Full sun', 'Moderate', 'Rich soil', 'Summer', 'Medium', NOW(), NOW()),
+
+('Cayenne Chili', 'cayenne.webp', 'Capsicum annuum', 'Solanaceae',
+'Long thin chili used for powder and sauces.',
+'Grow in warm conditions with lots of sun.',
+'Full sun', 'Moderate', 'Well-drained', 'Summer', 'Easy', NOW(), NOW()),
+
+('Thai Chili', 'thai-chili.webp', 'Capsicum frutescens', 'Solanaceae',
+'A small but extremely spicy chili used in Asian cuisine.',
+'Needs high warmth and humidity.',
+'Full sun', 'Moderate', 'Rich soil', 'Summer', 'Medium', NOW(), NOW()),
+
+('Oregano', 'oregano.webp', 'Origanum vulgare', 'Lamiaceae',
+'Mediterranean herb used in cooking.',
+'Prefers dry soil and sunny conditions.',
+'Full sun', 'Low', 'Sandy', 'Summer', 'Easy', NOW(), NOW()),
+
+('Lemongrass', 'lemongrass.webp', 'Cymbopogon citratus', 'Poaceae',
+'A citrus-flavored herb common in Asian cooking.',
+'Needs warmth and regular watering.',
+'Full sun', 'Moderate', 'Rich soil', 'Summer', 'Medium', NOW(), NOW());
+
+INSERT INTO tags (name) VALUES
+('herbs'),
+('chili'),
+('beginner'),
+('sauce'),
+('aromatic'),
+('indoor');
+
+INSERT INTO articles
+(author_id, title, slug, img_url, content, excerpt, category_id, published_date, created_at, updated_at, is_premium)
+VALUES
+
+(1,
+'Growing Aromatic Herbs at Home',
+'growing-aromatic-herbs',
+'herbs.webp',
+
+'Growing aromatic herbs at home is one of the easiest ways to start gardening. Herbs like basil, rosemary, and oregano grow well in containers and can thrive even on a sunny windowsill or balcony.
+
+Most herbs prefer well-drained soil and plenty of sunlight. Try placing your pots in a location where they receive at least six hours of sun per day. Herbs from the Mediterranean region, such as rosemary and oregano, prefer slightly drier soil compared to softer herbs like basil.
+
+Harvesting your herbs regularly actually helps the plant grow stronger and bushier. By trimming leaves often, you encourage the plant to produce new growth. Fresh herbs can transform simple meals and are perfect for salads, pasta, or homemade sauces.',
+
+'A beginner guide to growing aromatic herbs at home.',
+1, NOW(), NOW(), NOW(), FALSE
+),
+
+(2,
+'How to Grow Chili Peppers Successfully',
+'grow-chili-peppers',
+'chili.webp',
+
+'Chili peppers are one of the most exciting crops to grow at home. From mild jalapeños to fiery habaneros, chili plants thrive in warm conditions and produce colorful fruits that can be used fresh, dried, or in sauces.
+
+Start chili seeds indoors several weeks before the last frost. Chili plants love warmth and sunlight, so place them near a bright window or under grow lights. Once temperatures rise, they can be moved outdoors to a sunny spot.
+
+Water regularly but avoid overwatering, as chili plants prefer soil that drains well. With proper care, your plants will reward you with dozens of peppers that can be used in cooking or preserved for later.',
+
+'Tips for growing healthy and productive chili pepper plants.',
+2, NOW(), NOW(), NOW(), FALSE
+),
+
+(3,
+'Planting and Harvesting Garlic',
+'planting-garlic',
+'garlic.webp',
+
+'Garlic is one of the easiest crops to grow in the garden. It requires little maintenance and produces flavorful bulbs that can be stored for months after harvest.
+
+Garlic is typically planted in autumn. Individual cloves are placed in the soil with the pointed side facing upward. Over the winter, the cloves establish roots and begin growing again in early spring.
+
+By mid to late summer, the leaves will start to yellow, indicating that the bulbs are ready to harvest. After harvesting, allow the bulbs to dry in a well-ventilated place for several weeks before storing them.',
+
+'Learn how to plant and harvest garlic successfully.',
+2, NOW(), NOW(), NOW(), FALSE
+),
+
+(3,
+'Growing Ginger in Containers',
+'growing-ginger-containers',
+'ginger.webp',
+
+'Ginger is a tropical plant that can surprisingly be grown at home in containers. The edible part of the plant is the rhizome, which grows underground and develops a strong aromatic flavor used in many cuisines.
+
+To start growing ginger, plant a fresh ginger root in a pot filled with rich, moist soil. Ginger prefers warm temperatures and indirect sunlight. Keep the soil consistently moist but not soggy.
+
+Over time the plant will produce tall green shoots and continue developing its underground rhizomes. After several months you can harvest portions of the root while allowing the plant to continue growing.',
+
+'A simple guide to growing ginger indoors.',
+3, NOW(), NOW(), NOW(), FALSE
+),
+
+(2,
+'Make Your Own Chili Sauce from Fresh Peppers',
+'homemade-chili-sauce',
+'chili-sauce.webp',
+
+'If you grow chili peppers at home, making your own chili sauce is a fantastic way to use the harvest. Homemade chili sauce can be adjusted to your preferred level of heat and flavor.
+
+Start by washing and chopping your peppers. Combine them with garlic, vinegar, and a small amount of sugar in a blender. Blend until smooth and then simmer the mixture in a pot for about ten minutes to allow the flavors to develop.
+
+Once cooled, pour the sauce into sterilized bottles and store it in the refrigerator. Homemade chili sauce is perfect for marinades, stir-fries, and adding spice to your favorite dishes.',
+
+'A simple recipe for homemade chili sauce using fresh peppers.',
+4, NOW(), NOW(), NOW(), TRUE
+);
+
+INSERT INTO planting_schedule
+(plant_id, planting_start_month, planting_end_month, harvest_start_month, harvest_end_month, notes)
+VALUES
+(1,4,6,6,9,'Plant after frost'),
+(2,3,5,5,9,'Rosemary prefers warm soil'),
+(3,10,11,6,7,'Plant garlic cloves in autumn'),
+(4,3,4,9,10,'Grow indoors in cooler climates'),
+(5,3,5,7,10,'Jalapeno peppers love heat'),
+(6,3,5,7,10,'Habanero requires long season'),
+(7,3,5,7,10,'Cayenne peppers grow quickly'),
+(8,3,5,7,10,'Thai chili prefers high humidity'),
+(9,4,6,6,9,'Oregano thrives in warm soil'),
+(10,4,6,7,9,'Lemongrass grows best in warm climates');
+
+INSERT INTO article_plants VALUES
+(1,1),
+(1,2),
+(1,9),
+(2,5),
+(2,6),
+(2,7),
+(2,8),
+(3,3),
+(4,4),
+(5,5);
+
+INSERT INTO article_tags VALUES
+(1,1),
+(1,5),
+(1,3),
+(2,2),
+(2,3),
+(3,3),
+(4,6),
+(5,2),
+(5,4);
+
+/*Test queries*/
+
+SELECT
+      p.*,
+      ps.id AS schedule_id,
+      ps.planting_start_month,
+      ps.planting_end_month,
+      ps.harvest_start_month,
+      ps.harvest_end_month,
+      ps.notes
+    FROM plants p
+    LEFT JOIN planting_schedule ps ON ps.plant_id = p.id
+    WHERE p.id = 3;
+
+--
+
+SELECT * FROM articles ORDER BY published_date DESC LIMIT 1;
+
+--
+
+SELECT a.*,
+    authors.name AS author_name FROM articles a
+    LEFT JOIN authors ON a.author_id = authors.id
+    ORDER BY published_date DESC
+    LIMIT 1;
+
+--
+
+SELECT name, latin_name, plant_family, sun_requirement, water_requirement, soil_type, care_instructions
+FROM plants;
+
+--
+
+SELECT a.title, a.slug, c.name AS category, a.published_date
+FROM articles a
+JOIN authors au ON a.author_id = au.id
+JOIN categories c ON a.category_id = c.id
+WHERE au.name = 'Marcus Chill';
+
+--
+
+SELECT ar.title, ar.slug, au.name AS author
+FROM articles ar
+JOIN article_plants ap ON ar.id = ap.article_id
+JOIN plants p ON ap.plant_id = p.id
+JOIN authors au ON ar.author_id = au.id
+WHERE p.name = 'Basil';
+
+--
+
+SELECT p.name, ps.planting_start_month, ps.planting_end_month, ps.harvest_start_month, ps.harvest_end_month, ps.notes
+FROM planting_schedule ps
+JOIN plants p ON ps.plant_id = p.id
+ORDER BY ps.planting_start_month;
+
+--
+
+SELECT title, slug, published_date
+FROM articles
+WHERE is_premium = TRUE;
+
+--
+
+SELECT c.name AS category, COUNT(*) AS article_count
+FROM articles a
+JOIN categories c ON a.category_id = c.id
+GROUP BY c.id;
+
+--
+
+SELECT ar.title, GROUP_CONCAT(t.name) AS tags
+FROM articles ar
+JOIN article_tags at ON ar.id = at.article_id
+JOIN tags t ON at.tag_id = t.id
+GROUP BY ar.id;
+
+--
+
+SELECT name, difficulty_level, sun_requirement, water_requirement
+FROM plants
+WHERE difficulty_level = 'Easy';
+
+--
+
+SELECT name, blooming_season, sun_requirement
+FROM plants
+WHERE blooming_season LIKE '%Summer%';

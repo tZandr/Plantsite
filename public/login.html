@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body style="height: 100vh">
+    <header class="wrapper">
+      <div id="topBar">
+        <ul>
+          <a href="./login.html">
+            <li>Logga in</li>
+          </a>
+          <a href="./profile.html">
+            <li>Profil</li>
+          </a>
+        </ul>
+      </div>
+      <nav id="navHeader">
+        <a id="linkedLogo" href="./index.html"
+          ><img src="./assets/icons/succulent.png" alt="#logo" id="logo" />
+          <p style="font-weight: 500">PlantDB</p>
+        </a>
+        <ul>
+          <a href="./plants.html">
+            <li>Plantor</li>
+          </a>
+          <a href="./articles.html">
+            <li>Artiklar</li>
+          </a>
+          <a href="./community.html">
+            <li>Community</li>
+          </a>
+          <a href="./about.html">
+            <li>Om oss</li>
+          </a>
+        </ul>
+        <a href="./index.html"
+          ><img
+            src="./assets/icons/searchIcon.png"
+            alt="#search"
+            style="display: block"
+            id="searchIcon"
+        /></a>
+        <input type="text" style="display: none" />
+      </nav>
+    </header>
+    <main>
+      <div class="auth-container">
+        <div class="auth-card">
+          <div class="auth-header">
+            <h1>Login</h1>
+          </div>
+          <form name="login-form" id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="you@mail.com" />
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="●●●●●●●" />
+
+            <button type="submit">Login</button>
+          </form>
+          <p style="margin-bottom: 32px">
+            Don't have an account? <a href="signup.html">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="..\dist\public\src\index.js"></script>
+    <script type="module" src="../dist/public/src/login.js"></script>
+  </body>
+</html>

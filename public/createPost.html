@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plantsite</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="wrapper">
+      <div id="topBar">
+        <ul>
+          <a href="#"><li>Logga in</li></a>
+          <a href="./profile.html"><li>Profil</li></a>
+        </ul>
+      </div>
+      <nav id="navHeader">
+        <a id="linkedLogo" href="./index.html"
+          ><img src="./assets/icons/succulent.png" alt="#logo" id="logo" />
+          <p style="font-weight: 500">PlantDB</p></a
+        >
+        <ul>
+          <a href="./plants.html"><li>Plantor</li></a>
+          <a href="./articles.html"><li>Artiklar</li></a>
+          <a href="./community.html"><li>Community</li></a>
+          <a href="./about.html"><li>Om oss</li></a>
+        </ul>
+        <img
+          src="./assets/icons/searchIcon.png"
+          alt="#search"
+          style="display: block"
+          id="searchIcon"
+        />
+        <input type="text" id="searchBar" style="display: none" />
+      </nav>
+    </header>
+    <main class="wrapper">
+      <form class="create">
+        <h1>Create Post</h1>
+        <input
+          id="postTitle"
+          class="tagSearch"
+          type="text"
+          placeholder="Title*"
+        />
+        <div>
+          <h5>Select Tags</h5>
+          <div class="buttonGroup">
+            <button id="tag1" type="button" class="button tagButton">
+              Tag 1
+            </button>
+            <button id="tag2" type="button" class="button tagButton">
+              Tag 2
+            </button>
+            <button id="tag3" type="button" class="button tagButton">
+              Tag 3
+            </button>
+            <button id="tag4" type="button" class="button tagButton">
+              Tag 4
+            </button>
+            <button id="tag5" type="button" class="button tagButton">
+              Tag 5
+            </button>
+          </div>
+          <div>
+            <textarea
+              style="margin-bottom: 1rem"
+              id="postBody"
+              placeholder="Body"
+            ></textarea>
+            <button id="uploadButton">Upload</button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <footer class="wrapper">
+      <div>
+        <p>JSU2025</p>
+        <p>·</p>
+        <p>Alexander Tjernström</p>
+        <p>·</p>
+        <p>Ebba Wahlström</p>
+        <p>·</p>
+        <p>Anna Ek</p>
+      </div>
+      <a href="https://github.com/Kalkonkurt/Plantsite" id="repoLink"
+        >Repository</a
+      >
+    </footer>
+    <script type="module" src="../dist/public/src/createPost.js"></script>
+  </body>
+</html>

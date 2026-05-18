@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plantsite</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="wrapper">
+      <div id="topBar">
+        <ul>
+          <a href="#"><li>Logga in</li></a>
+          <a href="./profile.html"><li>Profil</li></a>
+        </ul>
+      </div>
+      <nav id="navHeader">
+        <a id="linkedLogo" href="./index.html"
+          ><img src="./assets/icons/succulent.png" alt="#logo" id="logo" />
+          <p style="font-weight: 500">PlantDB</p></a
+        >
+        <ul>
+          <a href="./plants.html"><li>Plants</li></a>
+          <a href="./articles.html"><li>Articles</li></a>
+          <a href="./community.html"><li>Community</li></a>
+          <a href="./about.html"><li>About us</li></a>
+        </ul>
+        <img
+          src="./assets/icons/searchIcon.png"
+          alt="#search"
+          style="display: block; cursor: pointer"
+          id="searchIcon"
+        />
+        <input type="text" id="searchBar" style="display: none" />
+      </nav>
+    </header>
+    <main>
+      <section id="hero-plants"></section>
+      <section>
+        <div class="wrapper row">
+          <article>
+            <div>
+              <h1 id="plant-h1">Chilis & Aromatics</h1>
+              <h5 id="plant-h5">
+                To grow a beautiful garden with blooming flowers is something
+                for the eyes. But to both get a gorgeous garden, that helps your
+                cooking. What could be better. Have a look among our plants and
+                learn and now how and when to grow them.
+              </h5>
+            </div>
+            <p id="artText">Have a look and see what to plant next!</p>
+          </article>
+        </div>
+      </section>
+      <section>
+        <div class="wrapper">
+          <h3 class="plantsTitle">Plants</h3>
+          <div id="plantContainer" class="cardGroup"></div>
+        </div>
+      </section>
+    </main>
+    <footer class="wrapper">
+      <div>
+        <p>JSU2025</p>
+        <p>·</p>
+        <p>Alexander Tjernström</p>
+        <p>·</p>
+        <p>Ebba Wahlström</p>
+        <p>·</p>
+        <p>Anna Ek</p>
+      </div>
+      <a href="https://github.com/Kalkonkurt/Plantsite" id="repoLink"
+        >Repository</a
+      >
+    </footer>
+    <script type="module" src="../dist/public/src/plants.js"></script>
+  </body>
+</html>
